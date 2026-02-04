@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    background: linear-gradient(120deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+    height: 100vh;
+    color: white;
+}
+
+h1 {
+    margin-top: 45px;
+    font-size: 2.6em;
+}
+
+p {
+    font-size: 18px;
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 25px;
+    border: 4px solid white;
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+}
+
+#yesBtn {
+    background-color: #ff2e63;
+    color: white;
+    left: 35%;
+    top: 72%;
+}
+
+#noBtn {
+    background-color: white;
+    color: #ff2e63;
+    left: 55%;
+    top: 72%;
+}
+
+#loveMessage {
+    display: none;
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+
+/* Hide YouTube player */
+iframe {
+    position: fixed;
+    bottom: -200px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>My Love ❤️</h1>
+
+<p>
+My dearest <b>Gourav Mohanta</b>,  
+you are my heart, my peace, and my forever happiness.  
+Will you be my Valentine today and always? 💖
+</p>
+
+<img src="gourav.jpg" alt="Gourav Mohanta">
+
+<button id="yesBtn">Yes My Love 😍</button>
+<button id="noBtn">No 😜</button>
+
+<div id="loveMessage">
+    💕 You just made me the happiest wife alive! 💕  
+</div>
+
+<!-- 🎶 Hindi Romantic Song (Autoplay) -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/Vp6m8JY5Y8E?autoplay=1&loop=1&playlist=Vp6m8JY5Y8E"
+allow="autoplay">
+</iframe>
+
+<script>
+const husbandName = "Gourav Mohanta";
+const whatsappNumber = "917381652095";
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const loveMessage = document.getElementById("loveMessage");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    const kiss = document.createElement("div");
+    kiss.innerHTML = "😘";
+    kiss.style.position = "absolute";
+    kiss.style.left = x + "px";
+    kiss.style.top = y + "px";
+    kiss.style.fontSize = "24px";
+
+    document.body.appendChild(kiss);
+    setTimeout(() => kiss.remove(), 1500);
+});
+
+yesBtn.addEventListener("click", () => {
+    loveMessage.style.display = "block";
+    startHearts();
+
+    const message =
+    `Yesss ❤️ I love you ${husbandName}! Happy Valentine’s Day 😘💖`;
+
+    const whatsappURL =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    setTimeout(() => {
+        window.location.href = whatsappURL;
+    }, 2000);
+});
+
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
